@@ -1,0 +1,26 @@
+{
+    "meals": [
+        {
+            "id": 1,
+            "name": "Plain Pasta",
+            "cousin": "Italian",
+            "ingredients": [
+                "spaghetti", "tomato sauce"
+            ],
+            "spices": [ "oregano", "salt", "hot sauce" ],
+            "cookingTime": 30,
+            "tags": [ "quick", "easy", "pasta"]
+        },
+        {
+            "id": 2,
+            "name": "Pork Chops with potatoes",
+            "cousin": "American",
+            "ingredients": [
+                "pork chops", "potatoes", "green peppers"
+            ],
+            "spices": [ "salt", "pepper", "hot sauce" ],
+            "cookingTime": 40,
+            "tags": [ "easy", "meat"]
+        }
+    ]
+}

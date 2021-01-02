@@ -2,6 +2,16 @@
 
 This is a small project that I'm building as part of my #100DaysOfCode Challenge.
 
+## Getting Started
+
+Start both the Svelte Frontend and the Express Backend:
+
+```bash
+npm run dev
+```
+
+Navigate to [localhost:5000](http://localhost:5000).
+
 ## svelte app
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
