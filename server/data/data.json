@@ -21,6 +21,50 @@
             "spices": [ "salt", "pepper", "hot sauce" ],
             "cookingTime": 40,
             "tags": [ "easy", "meat"]
+        },
+        {
+            "id": 3,
+            "name": "Pork Chops #3",
+            "cousin": "American",
+            "ingredients": [
+                "pork chops", "potatoes", "green peppers"
+            ],
+            "spices": [ "salt", "pepper", "hot sauce" ],
+            "cookingTime": 40,
+            "tags": [ "easy", "meat"]
+        },
+        {
+            "id": 4,
+            "name": "Chicken Fillet with veggies",
+            "cousin": "American",
+            "ingredients": [
+                "pork chops", "potatoes", "green peppers"
+            ],
+            "spices": [ "salt", "pepper", "hot sauce" ],
+            "cookingTime": 40,
+            "tags": [ "easy", "meat"]
+        },
+        {
+            "id": 5,
+            "name": "Banana and cereal",
+            "cousin": "American",
+            "ingredients": [
+                "pork chops", "potatoes", "green peppers"
+            ],
+            "spices": [ "salt", "pepper", "hot sauce" ],
+            "cookingTime": 40,
+            "tags": [ "easy", "meat"]
+        },
+        {
+            "id": 6,
+            "name": "Plain cereal",
+            "cousin": "American",
+            "ingredients": [
+                "pork chops", "potatoes", "green peppers"
+            ],
+            "spices": [ "salt", "pepper", "hot sauce" ],
+            "cookingTime": 40,
+            "tags": [ "easy", "meat"]
         }
     ]
 }
