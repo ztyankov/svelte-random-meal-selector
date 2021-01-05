@@ -4,16 +4,13 @@
 
     import Card, {
         Content,
-        PrimaryAction,
-        Media,
-        MediaContent,
         Actions,
         ActionButtons,
         ActionIcons,
     } from "@smui/card";
     import Button, { Label } from "@smui/button";
     import IconButton, { Icon } from "@smui/icon-button";
-    import type { IMeal } from "./types";
+    import type { IMeal } from "./types/imeal.interface";
 
     export let meal: IMeal;
 
@@ -25,11 +22,13 @@
         selected = !selected;
         dispatch("toggleSelected", { meal, selected });
     }
+
+    $: cookingTime = `(${meal.cookingTime.min} - ${meal.cookingTime.max})`;
 </script>
 
 <style>
     .card-internal-container {
-        height: calc(100% - 1px);
+        height: 100%;
     }
 
     .selected {
@@ -48,7 +47,7 @@
             </h2>
             <h3 class="mdc-typography--subtitle2" style="margin: 0 0 10px;">
                 <strong>Prep time</strong>:
-                {meal.cookingTime}
+                {cookingTime}
             </h3>
             <div>
                 <strong>Ingerdients</strong>:

@@ -11,24 +11,34 @@
         ActionButtons,
         ActionIcons,
     } from "@smui/card";
+    import Chip, { Set, Icon, Text } from "@smui/chips";
 
     import MealCard from "./MealCard.svelte";
-    import type { IMeal } from "./types";
     import Search from "./Search.svelte";
-    export let name: string;
+    import type { IMeal } from "./types/imeal.interface";
+    import { MealTypeEnum } from "./types/mealType.enum";
+    export let appName: string;
 
     let allMeals: IMeal[] = [];
     let selectedMeals: IMeal[] = [];
+    let foundMeals: IMeal[] = [];
+
+    const mealTypes = [
+        MealTypeEnum.BREAKFAST,
+        MealTypeEnum.BRUNCH,
+        MealTypeEnum.LUNCH,
+        MealTypeEnum.DINNER,
+    ];
+    let mealChoice: MealTypeEnum;
 
     onMount(async () => {
         const res = await fetch(`/meals`);
         const data = await res.json();
         allMeals = data.meals;
-        selectedMeals = [...allMeals];
     });
 
     function handleSearchResults(e) {
-        selectedMeals = e.detail.results;
+        foundMeals = e.detail.results;
     }
 
     function handleToggleSelected(e) {
@@ -38,6 +48,21 @@
             e.detail.meal,
             e.detail.selected
         );
+    }
+
+    function filerByType(type: MealTypeEnum) {
+        if (!type) {
+            return selectedMeals;
+        }
+
+        return selectedMeals.filter((item) => {
+            return item.type.indexOf(type) !== -1;
+        });
+    }
+
+    $: {
+        selectedMeals = (foundMeals.length && foundMeals) || allMeals;
+        selectedMeals = filerByType(mealChoice);
     }
 </script>
 
@@ -86,9 +111,29 @@
 </svelte:head>
 
 <main>
-    <h1>Hello {name}!</h1>
-    <h2>Search for your next meal!</h2>
-    <Search autofocus data={allMeals} on:resultsFound={handleSearchResults}/>
+    <h1>Welcome to {appName}!</h1>
+    <h2>Let's find your next meal!</h2>
+    <Search autofocus data={allMeals} on:resultsFound={handleSearchResults} />
+
+    <!-- TODO: Move this to another component for additional filters -->
+    <Card style="width: 400px; margin: 1em auto;">
+        <div>
+            <Content class="mdc-typography--body2">
+            <h3 class="mdc-typography--subtitle2" style="margin: 0 0 10px;">Meal choices:</h3>
+            <Set
+                chips={mealTypes}
+                let:chip
+                choice
+                bind:selected={mealChoice}
+                on:checked={filerByType}>
+                <Chip>
+                    <Text>{chip}</Text>
+                </Chip>
+            </Set>
+            </Content>
+        </div>
+    </Card>
+
     <div class="results-container">
         {#if selectedMeals.length > 0}
             <div class="results-grid">

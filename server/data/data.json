@@ -3,67 +3,105 @@
         {
             "id": 1,
             "name": "Plain Pasta",
-            "cousin": "Italian",
+            "cuisine": "Italian",
             "ingredients": [
                 "spaghetti", "tomato sauce"
             ],
             "spices": [ "oregano", "salt", "hot sauce" ],
-            "cookingTime": 30,
+            "type": ["Brunch", "Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 25,
+                "max": 30
+            },
             "tags": [ "quick", "easy", "pasta"]
         },
         {
             "id": 2,
             "name": "Pork Chops with potatoes",
-            "cousin": "American",
+            "cuisine": "American",
             "ingredients": [
                 "pork chops", "potatoes", "green peppers"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "cookingTime": 40,
+            "type": ["Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 30,
+                "max": 35
+            },
             "tags": [ "easy", "meat"]
         },
         {
             "id": 3,
             "name": "Pork Chops #3",
-            "cousin": "American",
+            "cuisine": "American",
             "ingredients": [
                 "pork chops", "potatoes", "green peppers"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "cookingTime": 40,
+            "type": ["Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 30,
+                "max": 40
+            },
             "tags": [ "easy", "meat"]
         },
         {
             "id": 4,
             "name": "Chicken Fillet with veggies",
-            "cousin": "American",
+            "cuisine": "American",
             "ingredients": [
-                "pork chops", "potatoes", "green peppers"
+                "chicken fillet", "green pepper", "onion"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "cookingTime": 40,
+            "type": ["Brunch", "Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 30,
+                "max": 40
+            },
             "tags": [ "easy", "meat"]
         },
         {
             "id": 5,
             "name": "Banana and cereal",
-            "cousin": "American",
+            "cuisine": "American",
             "ingredients": [
-                "pork chops", "potatoes", "green peppers"
+                "banana", "cereal"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "cookingTime": 40,
-            "tags": [ "easy", "meat"]
+            "type": ["Breakfast", "Brunch", "Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 5,
+                "max": 10
+            },
+            "tags": [ "easy"]
         },
         {
             "id": 6,
             "name": "Plain cereal",
-            "cousin": "American",
+            "cuisine": "American",
             "ingredients": [
                 "pork chops", "potatoes", "green peppers"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "cookingTime": 40,
+            "type": ["Breakfast", "Brunch", "Lunch", "Dinner"],
+            "cookingTime": {
+                "min": 5,
+                "max": 8
+            },
+            "tags": [ "easy"]
+        },
+        {
+            "id": 6,
+            "name": "Pancakes",
+            "cuisine": "American",
+            "ingredients": [
+                "eggs", "sugar", "flour"
+            ],
+            "type": ["Breakfast", "Brunch"],
+            "cookingTime": {
+                "min": 25,
+                "max": 30
+            },
             "tags": [ "easy", "meat"]
         }
     ]
