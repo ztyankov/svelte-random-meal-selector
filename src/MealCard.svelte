@@ -36,7 +36,7 @@
     }
 </style>
 
-<Card style="width: 360px; height: 200px" variant="outlined">
+<Card style="width: 360px; height: 200px; border-radius: 0px">
     <div
         class="card-internal-container"
         class:selected

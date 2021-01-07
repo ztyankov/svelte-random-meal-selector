@@ -68,6 +68,7 @@
 
 <style>
     main {
+        font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-align: center;
         padding: 1em;
         margin: 0 auto;
@@ -96,6 +97,45 @@
             max-width: none;
         }
     }
+
+    .filter-container {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        width: 420px;
+        margin: 2em auto;
+        background-color: #f1f5f7;
+        padding: 20px 25px 10px 25px;
+        border-radius: 0 10px 10px 0;
+        box-shadow: none;
+    }
+    .filter-container::before {
+        content: 'Meal choices:';
+    }
+    .filter-container::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 23px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: rgb(232, 241, 247);
+        background-color: rgb(35, 55, 66);
+        font-size: var(--font-size-micro);
+        font-family: var(--font-family-serif);
+        line-height: 1;
+        transform: translateY(-14px);
+    }
+
+    .filter-container::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        width: 4px;
+        background-color: #c7e9fa;
+    }
 </style>
 
 <svelte:head>
@@ -116,23 +156,19 @@
     <Search autofocus data={allMeals} on:resultsFound={handleSearchResults} />
 
     <!-- TODO: Move this to another component for additional filters -->
-    <Card style="width: 400px; margin: 1em auto;">
-        <div>
-            <Content class="mdc-typography--body2">
-            <h3 class="mdc-typography--subtitle2" style="margin: 0 0 10px;">Meal choices:</h3>
-            <Set
-                chips={mealTypes}
-                let:chip
-                choice
-                bind:selected={mealChoice}
-                on:checked={filerByType}>
-                <Chip>
-                    <Text>{chip}</Text>
-                </Chip>
-            </Set>
-            </Content>
-        </div>
-    </Card>
+    <div class="filter-container">
+        <Set
+            chips={mealTypes}
+            let:chip
+            choice
+            bind:selected={mealChoice}
+            on:checked={filerByType}>
+            <Chip class="filter-option">
+                <Icon class="material-icons" leading>check</Icon>
+                <Text>{chip}</Text>
+            </Chip>
+        </Set>
+    </div>
 
     <div class="results-container">
         {#if selectedMeals.length > 0}
