@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "@smui/card";
     import Textfield from "@smui/textfield";
-    import Button, { Label } from "@smui/button";
+    import Button from "@smui/button";
     import { createEventDispatcher } from "svelte";
 
     import { onMount } from "svelte";
@@ -20,6 +20,10 @@
     let input = undefined;
     let searchTerm = "";
     let results = [];
+
+    function handleSubmitOnKeyDown(searchTerm) {
+        handleSubmit();
+    }
 
     function handleSubmit() {
         results = filterResultsByQuery(searchTerm);
@@ -44,6 +48,10 @@
 
     function notifyResultsFound(results: any[]) {
         dispatch("resultsFound", { results });
+    }
+
+    $: {
+        handleSubmitOnKeyDown(searchTerm)
     }
 </script>
 

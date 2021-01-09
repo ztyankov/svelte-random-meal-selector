@@ -68,7 +68,7 @@
                 "banana", "cereal"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "type": ["Breakfast", "Brunch", "Lunch", "Dinner"],
+            "type": ["Breakfast", "Brunch", "Lunch"],
             "cookingTime": {
                 "min": 5,
                 "max": 10
@@ -83,7 +83,7 @@
                 "pork chops", "potatoes", "green peppers"
             ],
             "spices": [ "salt", "pepper", "hot sauce" ],
-            "type": ["Breakfast", "Brunch", "Lunch", "Dinner"],
+            "type": ["Breakfast", "Brunch", "Lunch"],
             "cookingTime": {
                 "min": 5,
                 "max": 8
@@ -93,7 +93,7 @@
         {
             "id": 6,
             "name": "Pancakes",
-            "cuisine": "American",
+            "cuisine": "Bulgarian",
             "ingredients": [
                 "eggs", "sugar", "flour"
             ],
