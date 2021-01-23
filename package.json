@@ -1,37 +1,38 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "node server/server.js",
-    "validate": "svelte-check"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@smui/button": "^2.0.0-beta.0",
-    "@smui/card": "^2.0.0-beta.0",
-    "@tsconfig/svelte": "^1.0.0",
-    "node-sass": "^5.0.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "svelte-check": "^1.0.0",
-    "svelte-preprocess": "^4.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.3"
-  },
-  "dependencies": {
-    "@smui/chips": "^2.0.0-beta.0",
-    "@smui/textfield": "^2.0.0-beta.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "sirv-cli": "^1.0.0"
-  }
+    "name": "z-meal-planner",
+    "version": "0.1.0",
+    "author": "Zdravko Tyankov",
+    "scripts": {
+        "start": "dev-all",
+        "dev-all": "run-p server-dev dev",
+        "dev": "snowpack dev",
+        "server-dev": "cd server && npm run dev",
+        "build": "snowpack build",
+        "ts-check": "svelte-check"
+    },
+    "dependencies": {
+        "svelte": "^3.24.0",
+        "svelte-spa-router": "^3.1.0"
+    },
+    "devDependencies": {
+        "@snowpack/plugin-build-script": "^2.1.0",
+        "@snowpack/plugin-dotenv": "^2.0.4",
+        "@snowpack/plugin-svelte": "^3.5.2",
+        "@snowpack/plugin-typescript": "^1.2.1",
+        "@tsconfig/svelte": "^1.0.10",
+        "@types/snowpack-env": "^2.3.0",
+        "autoprefixer": "^10.0.1",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.2.1",
+        "postcss-cli": "^8.3.0",
+        "postcss-import": "^13.0.0",
+        "postcss-load-config": "^2.1.0",
+        "prettier": "^2.2.1",
+        "prettier-plugin-svelte": "^1.4.1",
+        "snowpack": "^3.0.0",
+        "svelte-check": "^1.1.27",
+        "svelte-preprocess": "^4.6.1",
+        "tailwindcss": "^2.0.1",
+        "typescript": "^4.0.0"
+    }
 }

@@ -1,18 +1,19 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
+    import Card from "./Card.svelte";
 
-    import Card, {
-        Content,
-        Actions,
-        ActionButtons,
-        ActionIcons,
-        Media,
-        MediaContent
-    } from "@smui/card";
-    import Button, { Label } from "@smui/button";
-    import IconButton, { Icon } from "@smui/icon-button";
-    import type { IMeal } from "./types/imeal.interface";
+    // import Card, {
+    //     Content,
+    //     Actions,
+    //     ActionButtons,
+    //     ActionIcons,
+    //     Media,
+    //     MediaContent
+    // } from "@smui/card";
+    // import Button, { Label } from "@smui/button";
+    // import IconButton, { Icon } from "@smui/icon-button";
+    import type { IMeal } from "../types/imeal.interface";
 
     export let meal: IMeal;
 
@@ -44,10 +45,6 @@
         border-radius: 3px;
     }
 
-    .selected {
-        background-color: rgb(229, 241, 250);
-    }
-
     div :global(.card-content) {
         height: 70px;
     }
@@ -61,20 +58,20 @@
     }
 </style>
 
-<Card style="width: 360px; border-radius: 0px">
+<Card selected>
     <div
         class="card-internal-container"
         class:selected
         transition:fly={{ y: 20, duration: 300 }}>
-        <Media class="card-media-16x9" aspectRatio="16x9">
-            <MediaContent>
+        <!-- <Media class="card-media-16x9" aspectRatio="16x9">
+            <MediaContent> -->
                 <div class="title-container">
                     <h2 class="mdc-typography--headline6" style="margin: 0;">{meal.name}</h2>
                     <h3 class="mdc-typography--subtitle2" style="margin: 0;">{meal.cuisine}</h3>
                 </div>
-            </MediaContent>
+            <!-- </MediaContent>
         </Media>
-        <Content class="mdc-typography--body2 card-content">
+        <Content class="mdc-typography--body2 card-content"> -->
             <h3 class="mdc-typography--subtitle2" style="margin: 0 0 10px;">
                 <strong>Prep time</strong>:
                 {cookingTime}
@@ -83,8 +80,8 @@
                 <strong>Ingerdients</strong>:
                 {meal.ingredients.join(', ')}
             </div>
-        </Content>
-
+        <!-- </Content> -->
+<!--
         <Actions>
             <ActionButtons>
                 <Button on:click={toggleSelected}>
@@ -113,6 +110,6 @@
                     more_vert
                 </IconButton>
             </ActionIcons>
-        </Actions>
+        </Actions> -->
     </div>
 </Card>

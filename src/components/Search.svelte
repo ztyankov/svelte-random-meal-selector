@@ -1,27 +1,19 @@
 <script lang="ts">
-    import Card from "@smui/card";
-    import Textfield from "@smui/textfield";
-    import Button from "@smui/button";
+    import Card from "./Card.svelte";
+    // import Textfield from "@smui/textfield";
     import { createEventDispatcher } from "svelte";
 
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        if (autofocus) {
-            input.focus();
-        }
-    });
+    import { autofocus } from "../actions/autofocus";
 
     const dispatch = createEventDispatcher();
 
-    export let autofocus = false;
-    export let data = [];
+    export let data: any[] = [];
 
     let input = undefined;
     let searchTerm = "";
-    let results = [];
+    let results: any[] = [];
 
-    function handleSubmitOnKeyDown(searchTerm) {
+    function handleSubmitOnKeyDown() {
         handleSubmit();
     }
 
@@ -43,6 +35,7 @@
             });
         } catch (error) {
             console.error(error);
+            return [];
         }
     }
 
@@ -51,18 +44,15 @@
     }
 
     $: {
-        handleSubmitOnKeyDown(searchTerm)
+        handleSubmitOnKeyDown();
     }
 </script>
 
 <section>
-    <Card style="width: 360px; margin: 0 auto;">
+    <Card selected={false}>
         <div>
-            <Textfield
-                label="Food idea?"
-                bind:this={input}
-                bind:value={searchTerm} />
-            <Button on:click={handleSubmit}>Find my meal</Button>
+            <input type="text" use:autofocus />
+            <button on:click={handleSubmit}>Find my meal</button>
         </div>
     </Card>
 </section>
