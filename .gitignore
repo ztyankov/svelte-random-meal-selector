@@ -1,4 +1,6 @@
-/node_modules/
-/public/build/
+.build
+build
+web_modules
+node_modules
 
 .DS_Store

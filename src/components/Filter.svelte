@@ -1,14 +1,14 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import Chip, { Set, Icon, Text } from "@smui/chips";
+    // import Chip, { Set, Icon, Text } from "@smui/chips";
 
     const dispatch = createEventDispatcher();
 
-    export let types;
-    export let label;
+    export let types: any;
+    export let label: string;
     let className = "";
     export { className as class };
-    let selected;
+    let selected: boolean;
 
     $: {
         dispatch("optionSelected", { selected });
@@ -58,10 +58,11 @@
 </style>
 
 <div class="filter-container {className}" style={cssVarStyles}>
-    <Set chips={types} let:chip choice bind:selected>
+    {types}
+    <!-- <Set chips={types} let:chip choice bind:selected>
         <Chip class="filter-option">
             <Icon class="material-icons" leading>check</Icon>
             <Text>{chip.displayName || chip}</Text>
         </Chip>
-    </Set>
+    </Set> -->
 </div>
