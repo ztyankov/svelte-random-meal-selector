@@ -15,4 +15,5 @@ export interface IMeal {
         min: number,
         max: number
     };
+    photoUrl: string;
 }
