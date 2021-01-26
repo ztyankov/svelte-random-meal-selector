@@ -1,17 +1,19 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-    // import Chip, { Set, Icon, Text } from "@smui/chips";
+    import { createEventDispatcher } from 'svelte';
+
+    export let types: any[];
+    export let label: string;
 
     const dispatch = createEventDispatcher();
+    const SELECT_ALL = 'All';
 
-    export let types: any;
-    export let label: string;
-    let className = "";
+    let className = '';
     export { className as class };
-    let selected: boolean;
+    let selected = SELECT_ALL;
 
     $: {
-        dispatch("optionSelected", { selected });
+        const selection = selected === SELECT_ALL ? null : selected;
+        dispatch('optionSelected', { selected: selection });
     }
 
     $: cssVarStyles = `--label:"${label}"`;
@@ -22,12 +24,17 @@
         display: flex;
         align-items: flex-start;
         position: relative;
-        width: 420px;
+        /* width: 420px; */
         margin: 2em auto;
         background-color: #f1f5f7;
         padding: 20px 25px 10px 25px;
         border-radius: 0 10px 10px 0;
         box-shadow: none;
+    }
+
+    .filter-container input[type='checkbox'],
+    input[type='radio'] {
+        display: none;
     }
 
     .filter-container::before {
@@ -47,7 +54,7 @@
     }
 
     .filter-container::after {
-        content: "";
+        content: '';
         position: absolute;
         top: -1px;
         bottom: -1px;
@@ -55,14 +62,27 @@
         width: 4px;
         background-color: #c7e9fa;
     }
+
+    .selected {
+        @apply bg-svelte-600;
+    }
+
+    label {
+        @apply px-4 py-1 bg-gray-300 ml-2 rounded-lg hover:bg-svelte-400 cursor-pointer;
+    }
 </style>
 
-<div class="filter-container {className}" style={cssVarStyles}>
-    {types}
-    <!-- <Set chips={types} let:chip choice bind:selected>
-        <Chip class="filter-option">
-            <Icon class="material-icons" leading>check</Icon>
-            <Text>{chip.displayName || chip}</Text>
-        </Chip>
-    </Set> -->
+<div class="filter-container {className}" style="{cssVarStyles}">
+    {#each types as type}
+        <label class:selected="{selected === type}"><input
+                type="radio"
+                bind:group="{selected}"
+                value="{type}"
+            />{type.displayName || type}</label>
+    {/each}
+    <label class:selected="{selected === SELECT_ALL}"><input
+            type="radio"
+            bind:group="{selected}"
+            value="{SELECT_ALL}"
+        />{SELECT_ALL}</label>
 </div>

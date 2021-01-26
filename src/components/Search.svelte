@@ -1,16 +1,13 @@
 <script lang="ts">
-    import Card from "./Card.svelte";
-    // import Textfield from "@smui/textfield";
-    import { createEventDispatcher } from "svelte";
-
-    import { autofocus } from "../actions/autofocus";
+    import Card from './Card.svelte';
+    import Button from './Button.svelte';
+    import { createEventDispatcher } from 'svelte';
+    import { autofocus } from '../actions/autofocus';
 
     const dispatch = createEventDispatcher();
 
     export let data: any[] = [];
-
-    let input = undefined;
-    let searchTerm = "";
+    let searchTerm = '';
     let results: any[] = [];
 
     function handleSubmitOnKeyDown() {
@@ -24,7 +21,7 @@
 
     function filterResultsByQuery(queryString: string) {
         try {
-            if (queryString === "") {
+            if (queryString === '') {
                 return [...data];
             }
 
@@ -40,7 +37,7 @@
     }
 
     function notifyResultsFound(results: any[]) {
-        dispatch("resultsFound", { results });
+        dispatch('resultsFound', { results });
     }
 
     $: {
@@ -49,10 +46,10 @@
 </script>
 
 <section>
-    <Card selected={false}>
-        <div>
-            <input type="text" use:autofocus />
-            <button on:click={handleSubmit}>Find my meal</button>
+    <Card>
+        <div class="flex-row flex px-1 py-2">
+            <input class="field mr-1" type="text" use:autofocus bind:value="{searchTerm}" />
+            <Button secondary on:click="{handleSubmit}">Find my meal</Button>
         </div>
     </Card>
 </section>

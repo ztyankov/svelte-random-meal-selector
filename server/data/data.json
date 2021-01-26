@@ -4,105 +4,98 @@
             "id": 1,
             "name": "Plain Pasta",
             "cuisine": "Italian",
-            "ingredients": [
-                "spaghetti", "tomato sauce"
-            ],
-            "spices": [ "oregano", "salt", "hot sauce" ],
+            "ingredients": ["spaghetti", "tomato sauce"],
+            "spices": ["oregano", "salt", "hot sauce"],
             "type": ["Brunch", "Lunch", "Dinner"],
             "cookingTime": {
                 "min": 25,
                 "max": 30
             },
-            "tags": [ "quick", "easy", "pasta"]
+            "tags": ["quick", "easy", "pasta"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 2,
             "name": "Pork Chops with potatoes",
             "cuisine": "American",
-            "ingredients": [
-                "pork chops", "potatoes", "green peppers"
-            ],
-            "spices": [ "salt", "pepper", "hot sauce" ],
+            "ingredients": ["pork chops", "potatoes", "green peppers"],
+            "spices": ["salt", "pepper", "hot sauce"],
             "type": ["Lunch", "Dinner"],
             "cookingTime": {
                 "min": 30,
                 "max": 35
             },
-            "tags": [ "easy", "meat"]
+            "tags": ["easy", "meat"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 3,
             "name": "Pork Chops #3",
             "cuisine": "American",
-            "ingredients": [
-                "pork chops", "potatoes", "green peppers"
-            ],
-            "spices": [ "salt", "pepper", "hot sauce" ],
+            "ingredients": ["pork chops", "potatoes", "green peppers"],
+            "spices": ["salt", "pepper", "hot sauce"],
             "type": ["Lunch", "Dinner"],
             "cookingTime": {
                 "min": 30,
                 "max": 40
             },
-            "tags": [ "easy", "meat"]
+            "tags": ["easy", "meat"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 4,
             "name": "Chicken Fillet with veggies",
             "cuisine": "American",
-            "ingredients": [
-                "chicken fillet", "green pepper", "onion"
-            ],
-            "spices": [ "salt", "pepper", "hot sauce" ],
+            "ingredients": ["chicken fillet", "green pepper", "onion"],
+            "spices": ["salt", "pepper", "hot sauce"],
             "type": ["Brunch", "Lunch", "Dinner"],
             "cookingTime": {
                 "min": 30,
                 "max": 40
             },
-            "tags": [ "easy", "meat"]
+            "tags": ["easy", "meat"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 5,
             "name": "Banana and cereal",
             "cuisine": "American",
-            "ingredients": [
-                "banana", "cereal"
-            ],
-            "spices": [ "salt", "pepper", "hot sauce" ],
+            "ingredients": ["banana", "cereal"],
+            "spices": ["salt", "pepper", "hot sauce"],
             "type": ["Breakfast", "Brunch", "Lunch"],
             "cookingTime": {
                 "min": 5,
                 "max": 10
             },
-            "tags": [ "easy"]
+            "tags": ["easy"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 6,
             "name": "Plain cereal",
             "cuisine": "American",
-            "ingredients": [
-                "pork chops", "potatoes", "green peppers"
-            ],
-            "spices": [ "salt", "pepper", "hot sauce" ],
+            "ingredients": ["pork chops", "potatoes", "green peppers"],
+            "spices": ["salt", "pepper", "hot sauce"],
             "type": ["Breakfast", "Brunch", "Lunch"],
             "cookingTime": {
                 "min": 5,
                 "max": 8
             },
-            "tags": [ "easy"]
+            "tags": ["easy"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         },
         {
             "id": 6,
             "name": "Pancakes",
             "cuisine": "Bulgarian",
-            "ingredients": [
-                "eggs", "sugar", "flour"
-            ],
+            "ingredients": ["eggs", "sugar", "flour"],
             "type": ["Breakfast", "Brunch"],
             "cookingTime": {
                 "min": 25,
                 "max": 30
             },
-            "tags": [ "easy", "meat"]
+            "tags": ["easy", "meat"],
+            "photoUrl": "/assets/images/meal-placeholder-360x200.jpg"
         }
     ]
 }

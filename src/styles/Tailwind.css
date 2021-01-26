@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
+
+.field {
+    @apply shadow appearance-none bg-gray-50 border rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+
+button.primary {
+    @apply px-4 pt-1.5 pb-1 text-base text-svelte-800 rounded-lg hover:text-white hover:bg-svelte-200 hover:border-transparent focus:outline-none focus:bg-svelte-400 focus:text-white uppercase;
+}
+button.secondary {
+    @apply px-4 pt-1.5 pb-1 text-sm text-svelte-800 rounded-lg hover:text-white hover:bg-svelte-200 hover:border-transparent focus:outline-none focus:bg-svelte-400 focus:text-white;
+}
+
 @tailwind utilities;

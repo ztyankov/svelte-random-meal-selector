@@ -1,19 +1,9 @@
 <script lang="ts">
-    import { fly } from "svelte/transition";
-    import { createEventDispatcher } from "svelte";
-    import Card from "./Card.svelte";
-
-    // import Card, {
-    //     Content,
-    //     Actions,
-    //     ActionButtons,
-    //     ActionIcons,
-    //     Media,
-    //     MediaContent
-    // } from "@smui/card";
-    // import Button, { Label } from "@smui/button";
-    // import IconButton, { Icon } from "@smui/icon-button";
-    import type { IMeal } from "../types/imeal.interface";
+    import { fly } from 'svelte/transition';
+    import { createEventDispatcher } from 'svelte';
+    import Card from './Card.svelte';
+    import Button from './Button.svelte';
+    import type { IMeal } from '../types/imeal.interface';
 
     export let meal: IMeal;
 
@@ -23,93 +13,43 @@
 
     function toggleSelected() {
         selected = !selected;
-        dispatch("toggleSelected", { meal, selected });
+        dispatch('toggleSelected', { meal, selected });
     }
 
     $: cookingTime = `(${meal.cookingTime.min} - ${meal.cookingTime.max})`;
 </script>
 
 <style>
-    .card-internal-container {
-        height: 100%;
-    }
-
-    .title-container {
-        color: #fff;
-        position: absolute;
-        bottom: 6px;
-        left: 8px;
-        padding: 0 5px;
-        text-align: left;
-        background: rgba(10, 10, 10, 0.45);
-        border-radius: 3px;
-    }
-
-    div :global(.card-content) {
-        height: 70px;
-    }
-
-    div :global(.card-media-16x9) {
-        border: 1px solid rgba(0,0,0,.12);
-        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-        /* background-image: url('https://placeimg.com/360/200/nature'); */
-        background-image: url('/assets/images/meal-placeholder-360x200.jpg');
-        /* background-image: url('https://via.placeholder.com/360x200.png?text=Your meal here'); */
+    .card-label {
+        @apply text-lg text-blue-800 font-semibold;
     }
 </style>
 
-<Card selected>
-    <div
-        class="card-internal-container"
-        class:selected
-        transition:fly={{ y: 20, duration: 300 }}>
-        <!-- <Media class="card-media-16x9" aspectRatio="16x9">
-            <MediaContent> -->
-                <div class="title-container">
-                    <h2 class="mdc-typography--headline6" style="margin: 0;">{meal.name}</h2>
-                    <h3 class="mdc-typography--subtitle2" style="margin: 0;">{meal.cuisine}</h3>
-                </div>
-            <!-- </MediaContent>
-        </Media>
-        <Content class="mdc-typography--body2 card-content"> -->
-            <h3 class="mdc-typography--subtitle2" style="margin: 0 0 10px;">
-                <strong>Prep time</strong>:
-                {cookingTime}
-            </h3>
-            <div>
-                <strong>Ingerdients</strong>:
-                {meal.ingredients.join(', ')}
+<Card selected="{selected}">
+    <div class="grid grid-rows-2 grid-cols-1 gap-2" transition:fly="{{ y: 20, duration: 300 }}">
+        <div class="relative min-w-full sm:mx-0 sm:flex-shrink-0 shadow-md">
+            {#if meal.photoUrl}
+                <img src="{meal.photoUrl}" alt="Meal example" />
+            {:else}<img src="/assets/images/meal-placeholder-360x200.jpg" alt="Meal example" />{/if}
+            <div class="absolute bottom-0 left-0 bg-black bg-opacity-40 px-2 py-1">
+                <p class="text-lg text-white font-semibold">{meal.name}</p>
+                <p class="text-md text-white font-thin italic">{meal.cuisine}</p>
+                <p class="text-sm text-white font-thin">{meal.type.join(', ')}</p>
             </div>
-        <!-- </Content> -->
-<!--
-        <Actions>
-            <ActionButtons>
-                <Button on:click={toggleSelected}>
-                    <Label>Select</Label>
-                </Button>
-            </ActionButtons>
-            <ActionIcons>
-                <IconButton
-                    on:click={() => console.log('add to favorites')}
-                    toggle
-                    aria-label="Add to favorites"
-                    title="Add to favorites">
-                    <Icon class="material-icons" on>favorite</Icon>
-                    <Icon class="material-icons">favorite_border</Icon>
-                </IconButton>
-                <IconButton
-                    class="material-icons"
-                    on:click={() => console.log('Share')}
-                    title="Share">
-                    share
-                </IconButton>
-                <IconButton
-                    class="material-icons"
-                    on:click={() => console.log('More options')}
-                    title="More options">
-                    more_vert
-                </IconButton>
-            </ActionIcons>
-        </Actions> -->
+        </div>
+
+        <div class="relative text-left space-y-2 py-4 px-4 sm:text-left">
+            <div class="space-y-1">
+                <p class="text-black">
+                    <span class="card-label">Prep time</span>:
+                    {cookingTime}
+                    min
+                </p>
+                <p><span class="card-label">Ingerdients</span>: {meal.ingredients.join(', ')}</p>
+            </div>
+            <div class="absolute left-2 bottom-2">
+                <Button primary on:click="{toggleSelected}">Select</Button>
+            </div>
+        </div>
     </div>
 </Card>

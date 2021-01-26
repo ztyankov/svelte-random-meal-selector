@@ -21,9 +21,11 @@
     ];
 
     const prepTime = [
+        { displayName: '5 - 10', data: { min: 5, max: 10 } },
         { displayName: '10 - 15', data: { min: 10, max: 15 } },
         { displayName: '15 - 20', data: { min: 15, max: 20 } },
         { displayName: '20 - 30', data: { min: 20, max: 30 } },
+        { displayName: '30 - 45', data: { min: 30, max: 45 } },
     ];
 
     let mealTypeSelection: MealTypeEnum;
@@ -73,7 +75,10 @@
         }
 
         return selectedMeals.filter((item) => {
-            return item.cookingTime.max <= prepTime.data.max;
+            return (
+                item.cookingTime.max <= prepTime.data.max &&
+                item.cookingTime.min >= prepTime.data.min
+            );
         });
     }
 
@@ -128,7 +133,6 @@
     h1 {
         pointer-events: none;
         margin-bottom: 3rem;
-        /* animation: App-logo-pulse infinite 1.6s ease-in-out alternate; */
     }
     @keyframes App-logo-pulse {
         from {
@@ -151,7 +155,6 @@
 
 <main>
     <h1>Welcome to {appName}!</h1>
-    <h2>Let's find your next meal!</h2>
     <Search data="{allMeals}" on:resultsFound="{handleSearchResults}" />
 
     <div class="filter-boxes">
